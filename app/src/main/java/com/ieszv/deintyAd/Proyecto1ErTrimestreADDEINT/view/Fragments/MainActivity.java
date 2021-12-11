@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.R;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.databinding.ActivityMainBinding;
 

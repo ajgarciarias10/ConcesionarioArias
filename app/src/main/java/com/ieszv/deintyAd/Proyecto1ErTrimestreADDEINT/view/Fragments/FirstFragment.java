@@ -47,7 +47,6 @@ public class FirstFragment extends Fragment {
         //lista de pokemon
         RecyclerView rvCar = binding.rvCar;
         rvCar.setLayoutManager(new LinearLayoutManager(getContext()));
-
         CarViewModel pvm = new ViewModelProvider(getActivity()).get(CarViewModel.class);
         CarAdapter carAdapter = new CarAdapter(getContext());
         rvCar.setAdapter(carAdapter);

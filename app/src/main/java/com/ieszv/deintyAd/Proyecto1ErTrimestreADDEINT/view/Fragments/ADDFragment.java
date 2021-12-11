@@ -1,5 +1,7 @@
 package com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments;
 
+import static com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments.CheckingCampos.checkingEMPTYFIELDs;
+
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -24,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import com.bumptech.glide.Glide;
+import com.google.android.material.textfield.TextInputEditText;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.R;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.databinding.FragmentAddBinding;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.model.entity.Brand;
@@ -49,19 +52,13 @@ public class ADDFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getViewModel();
-
+        defineAddListener();
         binding.btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(ADDFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
-        });
-        binding.btEdit.setOnClickListener(v -> {
-            Car car = getCar();
-            addCar(car);
-            NavHostFragment.findNavController(ADDFragment.this)
-                    .navigate(R.id.action_SecondFragment_to_FirstFragment);
         });
         Glide.with(this).load(binding.textInputEditURL.getText().toString()).into(binding.imageView2);
         //PARA EL ICONO FINAL DE LA FECHA
@@ -86,13 +83,38 @@ public class ADDFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mGetContent.launch("image/*");
-
-
-
-
             }
         });
 
+    }
+
+
+    private void defineAddListener() {
+        binding.btEdit.setOnClickListener(v -> {
+            if(checkingEMPTYFIELDs(binding.textInputEditCarName)||checkingEMPTYFIELDs(binding.textInputEditModelo) || checkingEMPTYFIELDs(binding.textInputEditURL) || checkingEMPTYFIELDs(binding.textInputEditFechaDeSalida)){
+                Car car = getCar();
+                if(car.isValid()) {
+                    addCar(car);
+                    NavHostFragment.findNavController(ADDFragment.this)
+                            .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                } else {
+                    Toast.makeText(getContext(), "Car is  no valid", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            //1º validar los datos
+            //2º si está bien
+            //   3º insertar
+            //   4º si he insertado bien
+            //      5º si es la primera vez
+            //         6º mostrar el alert
+            //      7º sino
+            //         8º limpiar + toast
+            //   9º sino
+            //      10º toast
+            //11º sino
+            //   12º toast
+        });
     }
     @NonNull
     private Car getCar() {
@@ -158,8 +180,6 @@ public class ADDFragment extends Fragment {
         binding.textInputEditURL.setText("");
         binding.spBrand.setSelection(0);
     }
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

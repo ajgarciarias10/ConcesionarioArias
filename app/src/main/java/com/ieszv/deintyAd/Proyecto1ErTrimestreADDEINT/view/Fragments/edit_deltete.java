@@ -1,5 +1,7 @@
 package com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments;
 
+import static com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments.CheckingCampos.checkingEMPTYFIELDs;
+
 import android.app.DatePickerDialog;
 import android.net.Uri;
 import android.os.Bundle;
@@ -58,13 +60,9 @@ public class edit_deltete extends Fragment {
         Glide.with(this).load(binding.textInputEditURL.getText().toString()).into(binding.imageView2);
         getViewModel();
         binding.btEdit.setOnClickListener(v -> {
-            Car p = getCar();
-            if (p.isValid()){
-                pvm.updateCar(p);
-                NavHostFragment.findNavController(edit_deltete.this)
-                        .navigate(R.id.action_edit_deltete_to_FirstFragment);
-            }
+
         });
+
         binding.btCancel.setOnClickListener(v->{
             NavHostFragment.findNavController(edit_deltete.this)
                     .navigate(R.id.action_edit_deltete_to_FirstFragment);
@@ -77,6 +75,7 @@ public class edit_deltete extends Fragment {
                         .navigate(R.id.action_edit_deltete_to_FirstFragment);
             }
         });
+        defineEDITListener();
         binding.textInputLayoutURL.setEndIconOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +100,36 @@ public class edit_deltete extends Fragment {
             }
         });
 
+    }
+
+    private void defineEDITListener() {
+        binding.btEdit.setOnClickListener(v -> {
+            if(checkingEMPTYFIELDs(binding.textInputEditCarName)||checkingEMPTYFIELDs(binding.textInputEditModelo) || checkingEMPTYFIELDs(binding.textInputEditURL) || checkingEMPTYFIELDs(binding.textInputEditFechaDeSalida)){
+                Car car = getCar();
+                Car p = getCar();
+                if (p.isValid()){
+                    pvm.updateCar(p);
+                    NavHostFragment.findNavController(edit_deltete.this)
+                            .navigate(R.id.action_edit_deltete_to_FirstFragment);
+
+                } else {
+                    Toast.makeText(getContext(), "Car is  no valid", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            //1º validar los datos
+            //2º si está bien
+            //   3º insertar
+            //   4º si he insertado bien
+            //      5º si es la primera vez
+            //         6º mostrar el alert
+            //      7º sino
+            //         8º limpiar + toast
+            //   9º sino
+            //      10º toast
+            //11º sino
+            //   12º toast
+        });
     }
     private Car getCar() {
         String url = binding.textInputEditURL.getText().toString();
