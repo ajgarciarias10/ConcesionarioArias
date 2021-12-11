@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="texFieldisitos">
+        <item name="android:textSize">20dp</item>
+        <item name="fontFamily">@font/cairo</item>
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#C66D6E73</item>
+    </style>
+    <style name="titulos">
+        <item name="android:textSize">30dp</item>
+        <item name="fontFamily">@font/lemon</item>
+        <item name="android:textColor">#EFEFE9</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="texFieldisitos.NombreDelCoche">
+        <item name="android:textSize">20dp</item>
+        <item name="fontFamily">@font/cairo</item>
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:gravity">left</item>
+        <item name="android:background">#C66D6E73</item>
+
+
+    </style>
+
+    <style name="editText">
+        <item name="android:textColor">#F0F1E9</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/cairo</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textSize">@dimen/tamañoTextoDeTodo</item>
+    </style>
+
+    <style name="botonsitos">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/cairo</item>
+        <item name="android:textColor">#FFFF</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/cairo</item>
+        <item name="android:fontFamily">@font/cairo</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/cairo</item>
+        <item name="android:fontFamily">@font/cairo</item>
+    </style>
+    <style name="Theme.App" parent="Theme.MaterialComponents">
+        ...
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+    </style>
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">#171716</item>
+        <item name="colorOnSurface">#272726</item>
+        <item name="colorError">#DD0D0D</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+    </style>
+</resources>

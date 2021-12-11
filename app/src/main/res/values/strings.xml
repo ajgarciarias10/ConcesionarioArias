@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Concesionario Arias</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="action_add">Add a Car</string>
+    <string name="bt_add">ADD</string>
+    <string name="etCarName">Car Name</string>
+    <string name="default_type">Seleccione la marca</string>
+    <string name="hint_url">Introduzca la direccion de  la imagen</string>
+    <string name="bt_edit">EDIT</string>
+    <string name="bt_delete">DELETE</string>
+    <string name="helper_textCarName">Type the CarName</string>
+    <string name="tittle_inserting">Inserting Cars</string>
+    <string name="tittle_Delete">Removing and Editing Cars</string>
+
+    <string name="label_Car_name">Name of the Car</string>
+    <string name="label_model">Model of the Car</string>
+    <string name="label_date">Departure Date</string>
+    <string name="label_url">Type a URL</string>
+    <string name="bt_cancel">CANCEL</string>
+    <string name="action_dark">Dark</string>
+    <string name="action_light">Light</string>
+</resources>
