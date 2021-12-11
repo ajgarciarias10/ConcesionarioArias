@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 app:layout_collapseMode="parallax"
 
-                android:src="@drawable/b8df065f9d0f42e88d66564def852865"
+                android:src="@drawable/concesionario"
                 android:scaleType="centerCrop" />
 
             <androidx.appcompat.widget.Toolbar

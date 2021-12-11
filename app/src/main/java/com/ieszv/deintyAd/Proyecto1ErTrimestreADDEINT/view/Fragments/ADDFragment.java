@@ -128,6 +128,7 @@ public class ADDFragment extends Fragment {
 
         pvm = new ViewModelProvider(this).get(CarViewModel.class);
         pvm.getInsertResults().observe(getViewLifecycleOwner(), list -> {
+            Log.v("xyzyx", "res: " + list);
             if(list.get(0) > 0) {
                 if(firstTime) {
                     firstTime = false;
@@ -135,7 +136,7 @@ public class ADDFragment extends Fragment {
                     cleanFields();
                 }
             } else {
-                Toast.makeText(getContext(), "Brand Not Inserted", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "No se ha insertado", Toast.LENGTH_LONG).show();
             }
         });
 
