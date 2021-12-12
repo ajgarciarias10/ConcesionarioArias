@@ -59,10 +59,6 @@ public class edit_deltete extends Fragment {
         binding.textInputEditURL.setText(car.url);
         Glide.with(this).load(binding.textInputEditURL.getText().toString()).into(binding.imageView2);
         getViewModel();
-        binding.btEdit.setOnClickListener(v -> {
-
-        });
-
         binding.btCancel.setOnClickListener(v->{
             NavHostFragment.findNavController(edit_deltete.this)
                     .navigate(R.id.action_edit_deltete_to_FirstFragment);
@@ -75,8 +71,8 @@ public class edit_deltete extends Fragment {
                         .navigate(R.id.action_edit_deltete_to_FirstFragment);
             }
         });
-        defineEDITListener();
-        binding.textInputLayoutURL.setEndIconOnClickListener(new View.OnClickListener() {
+        //PARA EL ICONO FINAL DE LA FECHA
+        binding.textInputLayouFechadesalida.setEndIconOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePickerDialog();
@@ -99,13 +95,12 @@ public class edit_deltete extends Fragment {
 
             }
         });
-
+        defineEDITListener();
     }
 
     private void defineEDITListener() {
         binding.btEdit.setOnClickListener(v -> {
             if(checkingEMPTYFIELDs(binding.textInputEditCarName)||checkingEMPTYFIELDs(binding.textInputEditModelo) || checkingEMPTYFIELDs(binding.textInputEditURL) || checkingEMPTYFIELDs(binding.textInputEditFechaDeSalida)){
-                Car car = getCar();
                 Car p = getCar();
                 if (p.isValid()){
                     pvm.updateCar(p);
