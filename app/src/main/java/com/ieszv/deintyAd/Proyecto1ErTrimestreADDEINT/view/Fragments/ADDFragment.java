@@ -34,6 +34,8 @@ import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.model.entity.Car;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.viewmodel.BrandViewModel;
 import com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.viewmodel.CarViewModel;
 
+import java.util.Objects;
+
 public class ADDFragment extends Fragment {
     private Car car;
     private CarViewModel pvm;
@@ -60,7 +62,7 @@ public class ADDFragment extends Fragment {
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
-        Glide.with(this).load(binding.textInputEditURL.getText().toString()).into(binding.imageView2);
+
         //PARA EL ICONO FINAL DE LA FECHA
         binding.textInputLayouFechadesalida.setEndIconOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +87,7 @@ public class ADDFragment extends Fragment {
                 mGetContent.launch("image/*");
             }
         });
+        Glide.with(this).load(Objects.requireNonNull(binding.textInputEditURL.getText()).toString()).into(binding.imageView2);
 
     }
 
