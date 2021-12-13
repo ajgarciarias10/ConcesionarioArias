@@ -3,6 +3,7 @@ package com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments;
 import static com.ieszv.deintyAd.Proyecto1ErTrimestreADDEINT.view.Fragments.CheckingCampos.checkingEMPTYFIELDs;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -64,12 +66,7 @@ public class edit_deltete extends Fragment {
                     .navigate(R.id.action_edit_deltete_to_FirstFragment);
         });
         binding.btDelete.setOnClickListener(v->{
-            Car p = getCar();
-            if (p.isValid()){
-                pvm.deleteCars(p);
-                NavHostFragment.findNavController(edit_deltete.this)
-                        .navigate(R.id.action_edit_deltete_to_FirstFragment);
-            }
+            alertDelete();
         });
         //PARA EL ICONO FINAL DE LA FECHA
         binding.textInputLayouFechadesalida.setEndIconOnClickListener(new View.OnClickListener() {
@@ -191,5 +188,29 @@ public class edit_deltete extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void alertDelete() {
+        AlertDialog.Builder builder  = new AlertDialog.Builder(getContext());
+        builder.setTitle(" ¿Are you sure to remove it??")
+                .setMessage("The operation has been done successfully")
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        NavHostFragment.findNavController(edit_deltete.this)
+                                .navigate(R.id.action_edit_deltete_to_FirstFragment);
+                    }
+                })
+                .setPositiveButton( android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Car p = getCar();
+                        if (p.isValid()){
+                            pvm.deleteCars(p);
+                            NavHostFragment.findNavController(edit_deltete.this)
+                                    .navigate(R.id.action_edit_deltete_to_FirstFragment);
+                        }
+                    }
+                });
+        builder.create().show();
     }
 }
