@@ -1,6 +1,6 @@
 # ConcesionarioArias
 This program does the insertion of data to a local  base data named ROOM. This is database is about cars and its brands , like when you give out your car to the mechanic to have it reapaired. 
-So this app relationed to table of a database one is the Brand of the Car, and the other the car with his atributes(Name of the car,Model,Departure Date that is the momment when the boy that gives 
+So this app is  relationed to  the  table of a database one is the Brand of the Car, and the other the car with his atributes(Name of the car,Model,Departure Date that is the momment when the boy that gives 
 you the car out , you have it),and two types of insertion of photo that is for example going the internal data of your mobile or the other putting an URL in the textfield .
 So now you will have some photos to look on my work
 
